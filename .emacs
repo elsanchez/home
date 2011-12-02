@@ -7,8 +7,8 @@
 
 ;; Define the load path.
 (setq load-path (cons "~/.emacs.d" load-path))
-(setq load-path (cons "~/.emacs.d/bookmark+" load-path))
-(setq load-path (cons "~/.emacs.d/slime" load-path))
+; (setq load-path (cons "~/.emacs.d/bookmark+" load-path))
+; (setq load-path (cons "~/.emacs.d/slime" load-path))
 
 ;; Use Emacs Lisp Package Archive package manager.
 (when (load (expand-file-name "~/.emacs.d/elpa/package.el"))
@@ -62,7 +62,7 @@
 ;;; Extensions
 
 ;; Use bookmark+.
-(require 'bookmark+)
+; (require 'bookmark+)
 
 ;; Extend dired.
 (eval-after-load "dired"
@@ -75,6 +75,7 @@
 
 ; Add more uninteresting files.
 ; Archive files are uninteresting in emacs.
+(setq-default dired-omit-files ())
 (setq dired-omit-files
       (concat dired-omit-files "\\|\\.zip$"))
 
@@ -342,10 +343,10 @@
 (add-hook 'objc-mode-hook 'flyspell-prog-mode)
 
 ;; Common Lisp
-(require 'slime)
-(setq inferior-lisp-program "sbcl") ; default, override with hooks
-(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(slime-setup)
+; (require 'slime)
+; (setq inferior-lisp-program "sbcl") ; default, override with hooks
+; (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+; (slime-setup)
 
 ;; Conf
 (add-hook 'conf-mode-hook 'flyspell-prog-mode)
@@ -359,7 +360,7 @@
 
 ;; Erlang
 (add-to-list 'auto-mode-alist '("\\.et$" . html-mode))
-(require 'erlang-start)
+; (require 'erlang-start)
 
 (defun get-erl-man ()
   (interactive)
